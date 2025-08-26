@@ -36,7 +36,7 @@ src/
 ### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/Asif-Ullah-dev/vite-react-portfolio.git
-cd portfolio
+cd vite-react-portfolio
 ```
 
 ### 2️⃣ Install Dependencies
