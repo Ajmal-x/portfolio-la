@@ -1,162 +1,202 @@
-# 🚀 React-vite Portfolio Template
+# Abdullah Ahmadi — Full-Stack Developer Portfolio
 
-A **modern, fully responsive and animated personal portfolio template** built with **React + Vite**, **TailwindCSS v4**, and **Framer Motion**.  
-Perfect for developers, researchers, and professionals who want to showcase their **education, work experience, projects, skills, awards, and contact information** in a stylish way.  
- 
+A modern, responsive developer portfolio built with React, Vite, Tailwind CSS, and Framer Motion.
 
----
+The portfolio showcases my experience, technical skills, selected projects, and contact information as a Full-Stack Developer.
 
-## 📂 Project Structure
+## ✨ Features
 
-```
-src/
- ├── assets/           # Images, CV (or putt in public folder)
- ├── components/       # All React components (Hero, Navbar, AboutMe, etc.)
- ├── App.jsx           # Main entry with all sections
- ├── index.css         # TailwindCSS base styles
- ├── main.jsx          # React entry point
- └── ...
-```
-
----
+- Modern 2026-inspired developer portfolio
+- Responsive design for mobile, tablet, and desktop
+- Dark / Light mode
+- Animated UI with Framer Motion
+- Interactive navigation with active section detection
+- Professional terminal-style Hero section
+- Selected projects showcase
+- Technical skills overview
+- Experience timeline
+- Downloadable / viewable CV
+- GitHub, LinkedIn, Email, and WhatsApp contact links
+- Smooth hover and scroll animations
+- Clean and minimal UI
 
 ## 🛠️ Tech Stack
 
-- ⚡ **React + Vite** → fast development
-- 🎨 **TailwindCSS v4** (with `@tailwindcss/vite`)
-- ✨ **Framer Motion** → animations
-- 🔥 **React Icons** → icons for skills & contact
-- 📱 Fully Responsive → works on Mobile, Tablet, and Desktop
-- 🌐 Deployment → Netlify
+### Frontend
 
----
+- React
+- JavaScript
+- Vite
+- Tailwind CSS v4
+- Framer Motion
+- Lucide React
+
+### Backend & Database
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- REST APIs
+- JWT Authentication
+
+### Tools & Workflow
+
+- Git
+- GitHub
+- VS Code
+- Figma
+- Cloudinary
+
+## 📂 Project Structure
+
+```text
+src/
+├── assets/
+│   ├── admin.png
+│   ├── carrent.png
+│   ├── dportfolio.png
+│   ├── ecommerce.png
+│   ├── hotelbooking.png
+│   ├── jobit.png
+│   ├── supermarket.png
+│   └── tripguide.png
+│
+├── components/
+│   ├── AboutMe.jsx
+│   ├── Contact.jsx
+│   ├── ContactCTA.jsx
+│   ├── Education.jsx
+│   ├── Experience.jsx
+│   ├── Footer.jsx
+│   ├── Hero.jsx
+│   ├── Navbar.jsx
+│   ├── Projects.jsx
+│   └── SkillsRings.jsx
+│
+├── context/
+│   └── ThemeContext.jsx
+│
+├── App.jsx
+├── index.css
+└── main.jsx
+
+public/
+└── Abdullah-Ahmadi-CV.pdf
+````
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the Repository
+### 1. Clone the repository
+
 ```bash
-git clone https://github.com/Asif-Ullah-dev/vite-react-portfolio.git
-cd vite-react-portfolio
+git clone https://github.com/Ajmal-x/portfolio-la.git
+cd portfolio-la
 ```
 
-### 2️⃣ Install Dependencies
-Make sure you have **Node.js (>=18)** installed.  
-Then run:
+### 2. Install dependencies
+
+Make sure you have Node.js installed.
+
 ```bash
 npm install
 ```
 
-### 3️⃣ Run the Development Server
+### 3. Start the development server
+
 ```bash
 npm run dev
 ```
-Now open [http://localhost:5173](http://localhost:5173) in your browser.
 
----
+Open the local development URL shown in your terminal.
 
-## 🎨 Setup from Scratch (What I did)
+### 4. Build for production
 
-If you want to rebuild this project from zero, here are the exact steps followed:
-
-### Step 1 — Create React + Vite app
 ```bash
-npm create vite@latest my-portfolio 
-cd my-portfolio
-npm install
+npm run build
 ```
 
-### Step 2 — Install TailwindCSS v4 (with Vite plugin)
+### 5. Preview the production build
+
 ```bash
-npm install tailwindcss @tailwindcss/vite
+npm run preview
 ```
 
-### Step 3 — Configure `vite.config.js`
-Replace content with:
-```js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+## 💼 Selected Projects
 
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
-```
+### Trendify — Full-Stack E-Commerce Platform
 
-### Step 4 — Add Tailwind to `src/index.css`
-```css
-@import "tailwindcss";
-```
+A full-stack e-commerce application built with the MERN stack.
 
-(❌ No need for `tailwind.config.js` or `postcss.config.js` in v4 + vite setup)
+**Technologies:**
 
----
+React · Vite · Tailwind CSS · Node.js · Express.js · MongoDB · JWT · Cloudinary
 
-### Step 5 — Install Animations & Icons
-```bash
-npm install framer-motion react-icons react-type-animation
-```
+**Live Frontend:**
+[https://mern-ecommerce-qe7e.onrender.com](https://mern-ecommerce-qe7e.onrender.com)
 
----
+**Admin Dashboard:**
+[https://mern-ecommerce-admin-oemh.onrender.com](https://mern-ecommerce-admin-oemh.onrender.com)
 
-### Step 6 — Project Setup
-- Added `Navbar`, `Hero`, `AboutMe`, `Education`, `Experience`, `Skills`, `Honours`, `Presentations`, `Contact`
-- Used **Framer Motion** for hover, slide, fade, typing effects
-- Added **responsive design** (`flex-col`, `md:flex-row`, `px-4 sm:px-6 md:px-12`)
+### Hotel Booking
 
----
+A responsive hotel booking web application built with React.
 
-### Step 7 — Contact Form Setup (Netlify)
-In `Contact.jsx`, I added:
+**Live:**
+[https://hotel-booking-d3xn.vercel.app/](https://hotel-booking-d3xn.vercel.app/)
 
-```html
-<form name="contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="contact" />
-  ...
-</form>
-```
+### Developer Portfolio
 
-Netlify will handle submissions and send them to your email.
+A React-based developer portfolio project.
 
----
+**Live:**
+[https://portfolio-ten-livid-eto1u02lqq.vercel.app/](https://portfolio-ten-livid-eto1u02lqq.vercel.app/)
 
-### Step 8 — Deployment
-- Push project to GitHub.
-- Go to [Netlify](https://www.netlify.com/) → New Site → Import from GitHub.
-- Netlify will auto-detect **Vite** and deploy your portfolio.
+## 👨‍💻 About
 
----
+I'm Abdullah Ahmadi, a Full-Stack Developer focused on building modern web applications and practical digital products.
 
-## 📸 Features
+My main technologies include React, JavaScript, Node.js, Express, and MongoDB.
 
-- ✅ Hero Section with Typing Animation
-- ✅ Responsive Navbar with Sidebar (Mobile)
-- ✅ About Me, Education, Experience
-- ✅ Skills (Bars, Rings, Icons)
-- ✅ Honours & Awards with badges
-- ✅ Contact form + Social icons (WhatsApp, Email, LinkedIn, etc.)
-- ✅ Animated transitions on hover & scroll
+I completed professional MERN Stack development training from 2024 to 2025 and have been actively developing independent projects since 2025.
 
----
+I also have professional software development experience from working for three months at Top in Town Technology.
 
-## 📄 How to Collaborate
+## 📄 Resume
 
-1. Fork this repo.  
-2. Create a new branch:  
-   ```bash
-   git checkout -b feature-branch
-   ```
-3. Commit your changes:  
-   ```bash
-   git commit -m "Added new section"
-   ```
-4. Push to your branch:  
-   ```bash
-   git push origin feature-branch
-   ```
-5. Open a Pull Request.
+My CV is available directly from the portfolio:
 
----
+`public/Abdullah-Ahmadi-CV.pdf`
 
-## 👨‍💻 Made by
-**Asif Ullah**  
----
+## 📬 Contact
+
+**Email:**
+[abdullah.ah5695@gmail.com](mailto:abdullah.ah5695@gmail.com)
+
+**WhatsApp:**
++93 744 415 695
+
+**LinkedIn:**
+[https://af.linkedin.com/in/abdullah-ahmadi-703306364](https://af.linkedin.com/in/abdullah-ahmadi-703306364)
+
+**GitHub:**
+[https://github.com/Ajmal-x](https://github.com/Ajmal-x)
+
+## 🌐 Portfolio
+
+The live portfolio URL will be added here after deployment.
+
+## 📌 Future Improvements
+
+This portfolio is an evolving project. Future updates may include:
+
+* Additional project case studies
+* More detailed project pages
+* Improved accessibility
+* Performance optimizations
+* Additional interactive sections
+* New projects and technical experiments
+
+## 📜 License
+
+This project is a personal portfolio created by Abdullah Ahmadi.
