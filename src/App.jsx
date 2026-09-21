@@ -1,12 +1,13 @@
-import Navbar from "./components/Navbar"
-import Hero from "./components/Hero"
-import AboutMe from "./components/AboutMe"
-import Education from "./components/Education"
-import Experience from "./components/Experience"
-import Presentations from "./components/Presentations"
-import SkillsRings from "./components/SkillsRings"
-import Honours from "./components/Honours"
-import Contact from "./components/Contact"
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import AboutMe from "./components/AboutMe";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import ContactCTA from "./components/ContactCTA";
+import Footer from "./components/Footer";
+import SkillsRings from "./components/SkillsRings";
+import Projects from "./components/Projects"
+import Contact from "./components/Contact";
 
 export default function App() {
   return (
@@ -14,12 +15,15 @@ export default function App() {
       <Navbar />
       <Hero />
       <AboutMe />
+      <Projects />
       <Education />
       <Experience />
-      <Presentations />
       <SkillsRings />
-      <Honours />
-      <Contact/>
+      <Contact />
+
+      <ContactCTA />
+
+      <Footer />
     </div>
-  )
+  );
 }

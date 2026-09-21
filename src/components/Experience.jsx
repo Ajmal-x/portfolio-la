@@ -1,98 +1,209 @@
 import { motion } from "framer-motion"
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Code2,
+} from "lucide-react"
 
-const experienceData = [
+const experiences = [
   {
-    role: "Graduate Teaching Assistant",
-    place: "LUMS",
-    time: "Jan 2024 – Present",
-    points: [
-      "Conduct weekly tutorials for 80+ students",
-      "Prepare quizzes & assignments",
-      "Guide students in office hours"
-    ]
+    number: "01",
+    role: "Full-Stack Developer",
+    company: "Independent Projects",
+    period: "2025 — Present",
+    type: "Independent",
+    description:
+      "Developing web applications from interface design and frontend implementation to backend APIs, databases and deployment.",
+    technologies: [
+      "React",
+      "JavaScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Git",
+    ],
   },
   {
-    role: "Volunteer – Math’s Circle",
-    place: "LUMS",
-    time: "Oct 2023 – Present",
-    points: [
-      "Facilitated problem-solving sessions",
-      "Mentored school-level students",
-      "Designed fun math activities"
-    ]
+    number: "02",
+    role: "Software Developer",
+    company: "Top in Town Technology",
+    period: "3 Months",
+    type: "Professional Experience",
+    description:
+      "Worked in a software development environment, contributing to practical web projects and applying frontend and backend development skills.",
+    technologies: [
+      "Web Development",
+      "React",
+      "JavaScript",
+      "Git",
+      "Teamwork",
+    ],
   },
-  {
-    role: "IMM Program Representative",
-    place: "LUMS",
-    time: "Sep 2023 – Present",
-    points: [
-      "Liaison between LUMS & ICTP",
-      "Coordinated schedules & activities",
-      "Improved program efficiency"
-    ]
-  },
-  {
-    role: "Regional Director – Math’s Volunteers",
-    place: "Peshawar",
-    time: "Jan 2023 – Present",
-    points: [
-      "Organized free online seminars",
-      "Provided educational resources",
-      "Helped students gain confidence"
-    ]
-  }
 ]
 
 export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen flex flex-col items-center px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-br from-black via-gray-900 to-gray-950 py-12 sm:py-16 md:py-20"
+      className="relative overflow-hidden bg-[#f4f5f7] px-4 py-28 text-neutral-900 transition-colors duration-500 dark:bg-[#0c0d10] dark:text-white sm:px-6 md:px-12 lg:px-20"
     >
-      {/* Section Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 mb-10 sm:mb-12 text-center"
-      >
-        Experience
-      </motion.h2>
+      {/* Subtle background grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.025] dark:opacity-[0.035]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
 
-      {/* Timeline */}
-      <div className="relative border-l-2 border-yellow-400/40 max-w-3xl w-full mx-auto">
-        {experienceData.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-            className="mb-8 sm:mb-10 ml-6 sm:ml-8 relative"
+      <div className="relative mx-auto max-w-7xl">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl"
+        >
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-400">
+            03 / Experience
+          </p>
+
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+            Experience
+            <span className="text-neutral-400 dark:text-white/30">.</span>
+          </h2>
+
+          <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-500 dark:text-white/45 sm:text-lg">
+            A combination of professional software development and
+            hands-on project work across frontend, backend and full-stack
+            development.
+          </p>
+        </motion.div>
+
+        {/* Experience */}
+        <div className="mt-20">
+
+          {experiences.map((item, index) => (
+            <motion.article
+              key={item.number}
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.12,
+              }}
+              className="group relative border-t border-black/10 py-10 dark:border-white/10 sm:py-12"
+            >
+              <div className="grid gap-8 md:grid-cols-[80px_1fr_180px] lg:grid-cols-[100px_1fr_220px]">
+
+                {/* Number */}
+                <div className="hidden md:block">
+                  <span className="text-xs font-medium tracking-[0.2em] text-neutral-400 dark:text-white/25">
+                    {item.number}
+                  </span>
+                </div>
+
+                {/* Main Content */}
+                <div>
+                  <div className="flex items-start gap-4">
+
+                    <div className="mt-1 hidden h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 sm:flex">
+                      {index === 0 ? (
+                        <Code2 size={17} strokeWidth={1.5} />
+                      ) : (
+                        <BriefcaseBusiness size={17} strokeWidth={1.5} />
+                      )}
+                    </div>
+
+                    <div>
+                      <h3 className="text-2xl font-semibold tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-cyan-600 dark:text-white dark:group-hover:text-cyan-400 sm:text-3xl">
+                        {item.role}
+                      </h3>
+
+                      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                        <span className="font-medium text-neutral-700 dark:text-white/70">
+                          {item.company}
+                        </span>
+
+                        <span className="text-neutral-300 dark:text-white/20">
+                          /
+                        </span>
+
+                        <span className="text-neutral-400 dark:text-white/35">
+                          {item.type}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-7 max-w-2xl sm:ml-[52px]">
+                    <p className="text-sm leading-7 text-neutral-500 dark:text-white/45 sm:text-base">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+                      {item.technologies.map((technology) => (
+                        <span
+                          key={technology}
+                          className="text-xs font-medium text-neutral-400 transition-colors duration-300 group-hover:text-neutral-600 dark:text-white/30 dark:group-hover:text-white/55"
+                        >
+                          {technology}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Date */}
+                <div className="md:text-right">
+                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-400 dark:text-white/30">
+                    {item.period}
+                  </p>
+                </div>
+              </div>
+
+              {/* Hover line */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.4 }}
+                className="absolute bottom-0 left-0 h-px w-full origin-left bg-cyan-500/50"
+              />
+            </motion.article>
+          ))}
+
+          {/* Bottom border */}
+          <div className="border-t border-black/10 dark:border-white/10" />
+        </div>
+
+        {/* Bottom note */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p className="max-w-xl text-sm leading-6 text-neutral-400 dark:text-white/30">
+            Continuously learning, building and improving through real
+            projects and practical development experience.
+          </p>
+
+          <a
+            href="#projects"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-neutral-700 transition-colors hover:text-cyan-600 dark:text-white/60 dark:hover:text-cyan-400"
           >
-            {/* Circle */}
-            <span className="absolute -left-2 sm:-left-3 top-2 flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-yellow-400 rounded-full ring-2 sm:ring-3 md:ring-4 ring-yellow-400/30"></span>
-
-            {/* Content */}
-            <div className="flex flex-col gap-1">
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-yellow-400">
-                {item.role}
-              </h3>
-              <p className="text-gray-400 text-xs sm:text-sm md:text-base">
-                {item.place} • {item.time}
-              </p>
-              <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
-                {item.points.map((point, j) => (
-                  <li
-                    key={j}
-                    className="marker:text-yellow-400 text-xs sm:text-sm md:text-base"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        ))}
+            View projects
+            <ArrowUpRight
+              size={16}
+              className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+            />
+          </a>
+        </motion.div>
       </div>
     </section>
   )
