@@ -18,6 +18,7 @@ import ecommerce from "../assets/ecommerce.png"
 import hotelbooking from "../assets/hotelbooking.png"
 import dportfolio from "../assets/dportfolio.png"
 import carrent from "../assets/carrent.png"
+import jobplatform from "../assets/jobplatform.png"
 import jobit from "../assets/jobit.png"
 import supermarket from "../assets/supermarket.png"
 import tripguide from "../assets/tripguide.png"
@@ -74,6 +75,18 @@ const projects = [
   },
   {
     number: "05",
+    title: "HireDesk",
+    subtitle: "Full-Stack Job Platform",
+    description:
+      "A production-ready job platform with candidate and recruiter roles, authentication, job management, applications, saved jobs, notifications, and resume uploads.",
+    image: jobplatform,
+    category: "Full-Stack",
+    tech: ["React", "TypeScript", "Node.js", "MongoDB"],
+    live: "https://hirdesk.vercel.app/",
+    icon: BriefcaseBusiness,
+  },
+  {
+    number: "06",
     title: "Jobit",
     subtitle: "Job Platform",
     description:
@@ -85,7 +98,7 @@ const projects = [
     icon: BriefcaseBusiness,
   },
   {
-    number: "06",
+    number: "07",
     title: "Supermarket",
     subtitle: "E-Commerce Interface",
     description:
@@ -97,7 +110,7 @@ const projects = [
     icon: Store,
   },
   {
-    number: "07",
+    number: "08",
     title: "Trip Guide",
     subtitle: "Travel Experience",
     description:
@@ -109,7 +122,7 @@ const projects = [
     icon: Map,
   },
   {
-    number: "08",
+    number: "09",
     title: "Admin Dashboard",
     subtitle: "Management Interface",
     description:
@@ -258,6 +271,7 @@ export default function Projects() {
                     <h3 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
                       {project.title}
                     </h3>
+
                     <p className="mt-1 text-sm font-medium text-neutral-500 dark:text-neutral-400">
                       {project.subtitle}
                     </p>
@@ -291,6 +305,7 @@ export default function Projects() {
                       className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-neutral-900 transition-colors duration-300 hover:text-cyan-600 dark:text-white dark:hover:text-cyan-400"
                     >
                       View Live Project
+
                       <ArrowUpRight
                         size={15}
                         className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -326,9 +341,11 @@ export default function Projects() {
             className="group flex w-fit shrink-0 items-center gap-2 rounded-xl bg-neutral-900 px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-cyan-500 hover:text-neutral-900 dark:bg-white dark:text-neutral-900 dark:hover:bg-cyan-400"
           >
             <Github size={16} />
+
             Explore GitHub
-            <ArrowUpRight 
-              size={15} 
+
+            <ArrowUpRight
+              size={15}
               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
           </a>
