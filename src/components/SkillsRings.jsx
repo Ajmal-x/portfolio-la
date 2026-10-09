@@ -7,362 +7,487 @@ import {
   GitBranch,
   Cloud,
 } from "lucide-react"
+import { useTheme } from "../context/ThemeContext"
 
 const skillGroups = [
   {
     title: "Frontend",
     icon: Code2,
-    description: "Interfaces & user experiences",
-    skills: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-    ],
+    description: "Building experiences that matter",
+    skills: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
+    gradient: "from-violet-500 to-purple-500",
+    hover: "hover:border-violet-400/40",
+    badge:
+      "group-hover:bg-violet-500/10 group-hover:border-violet-400/40 group-hover:text-violet-600 dark:group-hover:text-violet-300",
   },
   {
     title: "Backend",
     icon: Server,
-    description: "APIs & server-side systems",
-    skills: [
-      "Node.js",
-      "Express.js",
-      "REST API",
-      "JWT",
-      "Axios",
-    ],
+    description: "APIs that scale reliably",
+    skills: ["Node.js", "Express.js", "REST API", "Fastify"],
+    gradient: "from-blue-500 to-cyan-500",
+    hover: "hover:border-blue-400/40",
+    badge:
+      "group-hover:bg-blue-500/10 group-hover:border-blue-400/40 group-hover:text-blue-600 dark:group-hover:text-blue-300",
   },
   {
     title: "Database",
     icon: Database,
-    description: "Data & persistence",
-    skills: [
-      "MongoDB",
-      "Mongoose",
-    ],
+    description: "Data architecture & optimization",
+    skills: ["MongoDB", "PostgreSQL", "Redis", "Firebase"],
+    gradient: "from-emerald-500 to-teal-500",
+    hover: "hover:border-emerald-400/40",
+    badge:
+      "group-hover:bg-emerald-500/10 group-hover:border-emerald-400/40 group-hover:text-emerald-600 dark:group-hover:text-emerald-300",
   },
   {
-    title: "Tools & Workflow",
-    icon: Wrench,
-    description: "Development workflow",
-    skills: [
-      "Git",
-      "GitHub",
-      "Vite",
-      "VS Code",
-      "Figma",
-    ],
-  },
-  {
-    title: "Deployment",
+    title: "DevOps",
     icon: Cloud,
-    description: "Production & hosting",
-    skills: [
-      "Render",
-      "Vercel",
-      "Cloudinary",
-    ],
+    description: "Deployment & infrastructure",
+    skills: ["Docker", "Vercel", "Render", "AWS"],
+    gradient: "from-orange-500 to-amber-500",
+    hover: "hover:border-orange-400/40",
+    badge:
+      "group-hover:bg-orange-500/10 group-hover:border-orange-400/40 group-hover:text-orange-600 dark:group-hover:text-orange-300",
   },
   {
-    title: "Development",
+    title: "Tools",
+    icon: Wrench,
+    description: "Workflow & productivity",
+    skills: ["Git", "GitHub", "VS Code", "Vite"],
+    gradient: "from-pink-500 to-rose-500",
+    hover: "hover:border-pink-400/40",
+    badge:
+      "group-hover:bg-pink-500/10 group-hover:border-pink-400/40 group-hover:text-pink-600 dark:group-hover:text-pink-300",
+  },
+  {
+    title: "Architecture",
     icon: GitBranch,
-    description: "Building complete products",
-    skills: [
-      "Responsive Design",
-      "Authentication",
-      "CRUD",
-      "API Integration",
-      "Component Architecture",
-    ],
+    description: "Building at scale",
+    skills: ["Microservices", "System Design", "Testing", "CI/CD"],
+    gradient: "from-indigo-500 to-purple-500",
+    hover: "hover:border-indigo-400/40",
+    badge:
+      "group-hover:bg-indigo-500/10 group-hover:border-indigo-400/40 group-hover:text-indigo-600 dark:group-hover:text-indigo-300",
   },
 ]
 
-export default function SkillsBars() {
+export default function SkillsShowcase() {
+  const { dark } = useTheme()
+
+  const isDark = dark
+
+
   return (
     <section
-      id="skills"
-      className="
-        relative overflow-hidden
-        bg-[#f4f5f7]
-        px-6 py-28
-        text-[#111318]
+      className={`
+        relative min-h-screen overflow-hidden
+        px-6 py-28 sm:px-8 lg:px-12
         transition-colors duration-500
-
-        dark:bg-[#0c0d10]
-        dark:text-white
-
-        sm:px-8
-        lg:px-12
-      "
+        ${
+          isDark
+            ? "bg-[#050505] text-white"
+            : "bg-[#f7f7f8] text-slate-950"
+        }
+      `}
     >
-      {/* Background Grid */}
-      <div
-        className="
-          pointer-events-none absolute inset-0
-          opacity-[0.035]
-          dark:hidden
-        "
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.7) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
+      {/* ================= BACKGROUND ================= */}
 
-      <div
-        className="
-          pointer-events-none absolute inset-0
-          hidden opacity-[0.022]
-          dark:block
-        "
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {isDark ? (
+          <>
+            <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-violet-500/15 blur-3xl" />
+            <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-blue-500/15 blur-3xl" />
+            <div className="absolute left-1/2 top-1/2 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
+          </>
+        ) : (
+          <>
+            <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-violet-400/10 blur-3xl" />
+            <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
+            <div className="absolute left-1/2 top-1/2 h-96 w-96 rounded-full bg-emerald-400/5 blur-3xl" />
+          </>
+        )}
+      </div>
+
+      {/* ================= CONTENT ================= */}
 
       <div className="relative mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-16 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <motion.div
-            initial={{ opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-10 bg-cyan-500 dark:bg-cyan-400" />
+
+        {/* ================= HEADER ================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <div className="mb-6 flex items-center gap-3">
+            <div
+              className={`
+                h-px w-12
+                bg-gradient-to-r
+                from-violet-500 to-transparent
+              `}
+            />
+
+            <span
+              className={`
+                text-xs font-semibold uppercase tracking-[0.2em]
+                ${
+                  isDark
+                    ? "text-violet-400"
+                    : "text-violet-600"
+                }
+              `}
+            >
+              Technical Expertise
+            </span>
+          </div>
+
+          <div className="max-w-3xl">
+            <h2
+              className={`
+                text-5xl font-bold tracking-tight
+                sm:text-6xl lg:text-7xl
+                ${
+                  isDark
+                    ? "text-white"
+                    : "text-slate-950"
+                }
+              `}
+            >
+              Specialized in
 
               <span
                 className="
-                  text-[11px] uppercase tracking-[0.28em]
-                  text-cyan-600
-                  dark:text-cyan-400
+                  block
+                  bg-gradient-to-r
+                  from-violet-500
+                  via-purple-500
+                  to-blue-500
+                  bg-clip-text
+                  text-transparent
                 "
               >
-                Technical Stack
-              </span>
-            </div>
-
-            <h2
-              className="
-                text-4xl font-semibold
-                tracking-[-0.04em]
-                sm:text-5xl
-                lg:text-6xl
-              "
-            >
-              Tools I use
-              <br />
-              <span className="text-neutral-400 dark:text-neutral-500">
-                to build.
+                full-stack development
               </span>
             </h2>
-          </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="
-              max-w-xl
-              text-base leading-8
-              text-neutral-600
-              dark:text-neutral-400
-              lg:ml-auto
-            "
-          >
-            A practical stack focused on building responsive interfaces,
-            scalable backend systems, reliable APIs and complete
-            full-stack products.
-          </motion.p>
-        </div>
+            <p
+              className={`
+                mt-6 max-w-2xl
+                text-lg leading-relaxed
+                ${
+                  isDark
+                    ? "text-neutral-400"
+                    : "text-slate-600"
+                }
+              `}
+            >
+              Production-ready expertise across the entire stack.
+              From interactive interfaces to scalable backend systems,
+              I build complete solutions that matter.
+            </p>
+          </div>
+        </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-black/[0.08] bg-black/[0.08] dark:border-white/[0.08] dark:bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+        {/* ================= SKILLS GRID ================= */}
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, index) => {
             const Icon = group.icon
 
             return (
               <motion.div
                 key={group.title}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
                   duration: 0.6,
-                  delay: index * 0.07,
+                  delay: index * 0.08,
                 }}
-                className="
-                  group
-                  relative
-                  bg-[#f4f5f7]
-                  p-7
-                  transition-all duration-500
-                  hover:bg-white
-
-                  dark:bg-[#0c0d10]
-                  dark:hover:bg-[#111318]
-                "
+                className="group"
               >
-                {/* Number */}
-                <span
-                  className="
-                    absolute right-6 top-6
-                    font-mono text-[10px]
-                    tracking-widest
-                    text-neutral-300
-                    dark:text-neutral-700
-                  "
-                >
-                  0{index + 1}
-                </span>
-
-                {/* Icon */}
                 <div
-                  className="
-                    mb-7 flex h-11 w-11
-                    items-center justify-center
-                    rounded-xl
-                    border
-                    transition-all duration-300
-
-                    border-black/[0.08]
-                    bg-white
-                    text-neutral-700
-                    group-hover:border-cyan-500/30
-                    group-hover:text-cyan-600
-
-                    dark:border-white/[0.08]
-                    dark:bg-white/[0.03]
-                    dark:text-neutral-400
-                    dark:group-hover:border-cyan-400/30
-                    dark:group-hover:text-cyan-400
-                  "
+                  className={`
+                    relative h-full overflow-hidden
+                    rounded-2xl border
+                    p-8
+                    backdrop-blur-sm
+                    transition-all duration-500
+                    hover:-translate-y-1
+                    ${
+                      isDark
+                        ? `
+                          border-white/10
+                          bg-white/[0.035]
+                          hover:bg-white/[0.06]
+                          ${group.hover}
+                        `
+                        : `
+                          border-slate-200
+                          bg-white/80
+                          shadow-[0_10px_40px_rgba(15,23,42,0.05)]
+                          hover:bg-white
+                          hover:shadow-[0_20px_60px_rgba(15,23,42,0.09)]
+                          ${group.hover}
+                        `
+                    }
+                  `}
                 >
-                  <Icon size={19} strokeWidth={1.7} />
+
+                  {/* TOP GRADIENT LINE */}
+
+                  <div
+                    className={`
+                      absolute inset-x-0 top-0 h-[2px]
+                      rounded-t-2xl
+                      bg-gradient-to-r ${group.gradient}
+                      opacity-0
+                      transition-opacity duration-300
+                      group-hover:opacity-100
+                    `}
+                  />
+
+                  {/* ================= ICON ================= */}
+
+                  <motion.div
+                    whileHover={{
+                      scale: 1.08,
+                      rotate: 4,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                    }}
+                    className={`
+                      mb-6 inline-flex
+                      rounded-xl
+                      bg-gradient-to-br
+                      ${group.gradient}
+                      p-3
+                      shadow-lg
+                    `}
+                  >
+                    <Icon
+                      size={24}
+                      className="text-white"
+                      strokeWidth={1.7}
+                    />
+                  </motion.div>
+
+                  {/* ================= TITLE ================= */}
+
+                  <h3
+                    className={`
+                      mb-2 text-2xl font-bold
+                      ${
+                        isDark
+                          ? "text-white"
+                          : "text-slate-950"
+                      }
+                    `}
+                  >
+                    {group.title}
+                  </h3>
+
+                  {/* ================= DESCRIPTION ================= */}
+
+                  <p
+                    className={`
+                      mb-6 text-sm
+                      ${
+                        isDark
+                          ? "text-neutral-400"
+                          : "text-slate-500"
+                      }
+                    `}
+                  >
+                    {group.description}
+                  </p>
+
+                  {/* ================= SKILLS ================= */}
+
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map((skill, i) => (
+                      <motion.span
+                        key={skill}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          delay:
+                            index * 0.08 +
+                            i * 0.05,
+                        }}
+                        className={`
+                          inline-flex
+                          rounded-full
+                          border
+                          px-3 py-1.5
+                          text-xs font-medium
+                          transition-all duration-300
+                          ${
+                            isDark
+                              ? "border-white/10 bg-white/[0.04] text-neutral-300"
+                              : "border-slate-200 bg-slate-50 text-slate-600"
+                          }
+                          ${group.badge}
+                        `}
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+
+                  {/* ================= HOVER GLOW ================= */}
+
+                  <div
+                    className={`
+                      pointer-events-none
+                      absolute inset-0
+                      rounded-2xl
+                      bg-gradient-to-br
+                      ${group.gradient}
+                      opacity-0
+                      blur-2xl
+                      transition-opacity duration-500
+                      group-hover:opacity-[0.035]
+                    `}
+                  />
                 </div>
-
-                {/* Title */}
-                <h3
-                  className="
-                    text-lg font-semibold
-                    tracking-tight
-                    text-neutral-900
-                    dark:text-white
-                  "
-                >
-                  {group.title}
-                </h3>
-
-                {/* Description */}
-                <p
-                  className="
-                    mt-2 text-sm
-                    text-neutral-500
-                    dark:text-neutral-500
-                  "
-                >
-                  {group.description}
-                </p>
-
-                {/* Skills */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="
-                        rounded-full
-                        border
-                        px-3 py-1.5
-                        text-[11px]
-                        font-medium
-                        transition-all duration-300
-
-                        border-black/[0.08]
-                        bg-white
-                        text-neutral-600
-                        group-hover:border-black/[0.12]
-
-                        dark:border-white/[0.08]
-                        dark:bg-white/[0.03]
-                        dark:text-neutral-400
-                        dark:group-hover:border-white/[0.12]
-
-                        hover:border-cyan-500/40
-                        hover:text-cyan-600
-
-                        dark:hover:border-cyan-400/40
-                        dark:hover:text-cyan-400
-                      "
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Bottom Accent */}
-                <div
-                  className="
-                    absolute bottom-0 left-7 right-7
-                    h-px
-                    origin-left
-                    scale-x-0
-                    bg-cyan-500
-                    transition-transform duration-500
-                    group-hover:scale-x-100
-
-                    dark:bg-cyan-400
-                  "
-                />
               </motion.div>
             )
           })}
         </div>
 
-        {/* Bottom Statement */}
+        {/* ================= STATS ================= */}
+
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="
-            mt-10 flex flex-col gap-4
-            border-t
-            border-black/[0.08]
-            pt-6
-
-            dark:border-white/[0.08]
-
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+          }}
+          className={`
+            mt-20 grid
+            gap-8
+            rounded-2xl
+            border
+            p-8
+            backdrop-blur-sm
+            sm:grid-cols-3
+            ${
+              isDark
+                ? "border-white/10 bg-white/[0.035]"
+                : "border-slate-200 bg-white/80 shadow-[0_10px_40px_rgba(15,23,42,0.05)]"
+            }
+          `}
         >
-          <span
-            className="
-              font-mono text-[10px]
-              uppercase tracking-[0.2em]
-              text-neutral-400
-              dark:text-neutral-600
-            "
-          >
-            React · Node.js · MongoDB
-          </span>
 
-          <span
-            className="
-              text-xs
-              text-neutral-400
-              dark:text-neutral-600
-            "
+          {/* STAT 1 */}
+
+          <div className="text-center">
+            <div
+              className="
+                mb-2 text-4xl font-bold
+                bg-gradient-to-r
+                from-violet-500
+                to-purple-500
+                bg-clip-text
+                text-transparent
+              "
+            >
+              6+
+            </div>
+
+            <p
+              className={`
+                text-sm
+                ${
+                  isDark
+                    ? "text-neutral-400"
+                    : "text-slate-500"
+                }
+              `}
+            >
+              Technology domains
+            </p>
+          </div>
+
+          {/* STAT 2 */}
+
+          <div
+            className={`
+              border-x
+              text-center
+              ${
+                isDark
+                  ? "border-white/10"
+                  : "border-slate-200"
+              }
+            `}
           >
-            Always learning. Always building.
-          </span>
+            <div
+              className="
+                mb-2 text-4xl font-bold
+                bg-gradient-to-r
+                from-blue-500
+                to-cyan-500
+                bg-clip-text
+                text-transparent
+              "
+            >
+              20+
+            </div>
+
+            <p
+              className={`
+                text-sm
+                ${
+                  isDark
+                    ? "text-neutral-400"
+                    : "text-slate-500"
+                }
+              `}
+            >
+              Production projects
+            </p>
+          </div>
+
+          {/* STAT 3 */}
+
+          <div className="text-center">
+            <div
+              className="
+                mb-2 text-4xl font-bold
+                bg-gradient-to-r
+                from-emerald-500
+                to-teal-500
+                bg-clip-text
+                text-transparent
+              "
+            >
+              Continuous
+            </div>
+
+            <p
+              className={`
+                text-sm
+                ${
+                  isDark
+                    ? "text-neutral-400"
+                    : "text-slate-500"
+                }
+              `}
+            >
+              Learning & growth
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

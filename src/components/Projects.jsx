@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion"
 import {
   ArrowUpRight,
@@ -11,7 +12,7 @@ import {
   LayoutDashboard,
   Box,
   Github,
-  Code2
+  Code2,
 } from "lucide-react"
 
 import ecommerce from "../assets/ecommerce.png"
@@ -63,14 +64,22 @@ const projects = [
   },
   {
     number: "04",
-    title: "Car Rental",
-    subtitle: "Rental Platform",
+    title: "RAVELO",
+    subtitle: "Full-Stack Car Rental Platform",
     description:
-      "A responsive car rental interface designed around vehicle discovery and a streamlined user experience.",
+      "A full-stack car rental platform featuring vehicle discovery, user authentication, online bookings, owner dashboards, fleet management, and cloud image uploads.",
     image: carrent,
-    category: "Web App",
-    tech: ["React", "JavaScript", "Tailwind"],
-    live: null,
+    category: "Full-Stack",
+    tech: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "ImageKit",
+    ],
+    live: "https://ravelo-car-rental.vercel.app/",
+    github: "https://github.com/Ajmal-x/ravelo-car-rental",
     icon: Car,
   },
   {
@@ -78,7 +87,7 @@ const projects = [
     title: "HireDesk",
     subtitle: "Full-Stack Job Platform",
     description:
-      "A production-ready job platform with candidate and recruiter roles, authentication, job management, applications, saved jobs, notifications, and resume uploads.",
+      "A full-stack job platform with candidate and recruiter roles, authentication, job management, applications, saved jobs, notifications, and resume uploads.",
     image: jobplatform,
     category: "Full-Stack",
     tech: ["React", "TypeScript", "Node.js", "MongoDB"],
@@ -227,6 +236,7 @@ export default function Projects() {
                       <motion.img
                         src={project.image}
                         alt={`${project.title} project`}
+                        loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                     </div>
@@ -257,6 +267,7 @@ export default function Projects() {
                       {project.live ? (
                         <ExternalLink
                           size={14}
+                          aria-label="Live project available"
                           className="shrink-0 text-neutral-400 transition-colors duration-300 group-hover:text-cyan-500"
                         />
                       ) : (
@@ -297,25 +308,40 @@ export default function Projects() {
 
                 {/* Footer Action Area */}
                 <div className="mt-auto border-t border-neutral-100 p-6 pt-5 dark:border-white/5">
-                  {project.live ? (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-neutral-900 transition-colors duration-300 hover:text-cyan-600 dark:text-white dark:hover:text-cyan-400"
-                    >
-                      View Live Project
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                    {project.live ? (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-neutral-900 transition-colors duration-300 hover:text-cyan-600 dark:text-white dark:hover:text-cyan-400"
+                      >
+                        View Live Project
+                        <ArrowUpRight
+                          size={15}
+                          className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        />
+                      </a>
+                    ) : (
+                      <span className="inline-block font-mono text-xs text-neutral-400 dark:text-neutral-600">
+                        Currently offline
+                      </span>
+                    )}
 
-                      <ArrowUpRight
-                        size={15}
-                        className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      />
-                    </a>
-                  ) : (
-                    <span className="inline-block font-mono text-xs text-neutral-400 dark:text-neutral-600">
-                      Currently offline
-                    </span>
-                  )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} source code on GitHub`}
+                        className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-neutral-600 transition-colors duration-300 hover:text-cyan-600 dark:text-neutral-300 dark:hover:text-cyan-400"
+                      >
+                        <Github size={15} />
+                        Source Code
+                        <ArrowUpRight size={14} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </motion.article>
             )
@@ -331,7 +357,8 @@ export default function Projects() {
           className="mt-20 flex flex-col justify-between gap-6 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#13151a] sm:flex-row sm:items-center sm:p-8"
         >
           <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-            More complete works, backend APIs, and experimental code are available on my GitHub.
+            More complete works, backend APIs, and experimental code are
+            available on my GitHub.
           </p>
 
           <a
@@ -341,9 +368,7 @@ export default function Projects() {
             className="group flex w-fit shrink-0 items-center gap-2 rounded-xl bg-neutral-900 px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-cyan-500 hover:text-neutral-900 dark:bg-white dark:text-neutral-900 dark:hover:bg-cyan-400"
           >
             <Github size={16} />
-
             Explore GitHub
-
             <ArrowUpRight
               size={15}
               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
