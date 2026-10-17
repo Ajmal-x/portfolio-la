@@ -40,14 +40,14 @@ const projects = [
   },
   {
     number: "02",
-    title: "Hotel Booking",
+    title: "Lumea Hotel",
     subtitle: "Booking Platform",
     description:
       "A modern hotel booking experience focused on responsive design and a clean user interface.",
     image: hotelbooking,
     category: "Web App",
     tech: ["React", "JavaScript", "Tailwind"],
-    live: "https://hotel-booking-d3xn.vercel.app/",
+    live: "https://hotel-booking-9761.vercel.app/",
     icon: Hotel,
   },
   {
